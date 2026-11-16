@@ -34,5 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'pathology' => [
+        'url' => env(
+            'PATHOLOGY_SERVICE_URL',
+            'http://127.0.0.1:8001'
+        ),
+    ],
 
 ];

@@ -8,7 +8,7 @@
         {{-- 1. Brand / Logo --}}
         <a href="{{ route('home') }}" class="group flex items-center gap-3" aria-label="Deqqa home">
             <img src="{{ asset('image/Full_logo.png') }}" alt="Logo"
-                class="h-18 w-auto  transition-transform duration-300 group-hover:scale-105">
+                class="h-16 w-auto  transition-transform duration-300 group-hover:scale-105">
         </a>
 
         {{-- 2. Desktop Navigation with Strong Hover --}}
@@ -55,7 +55,7 @@
         <div class="hidden items-center gap-4 md:flex">
 
             {{-- Login Button --}}
-            <a href="{{ /* route('login') */ route('home') }}"
+            <a href="{{  route('login')  }}"
                 class="group relative overflow-hidden rounded-full border border-white/10 bg-white/[0.03] px-6 py-2.5 text-sm font-bold text-white backdrop-blur-md transition-all hover:border-[#6EA8FF]/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(110,168,255,0.2)]">
                 <span class="relative z-10">Login</span>
                 {{-- Shine Animation --}}
@@ -116,7 +116,7 @@
                 class="mobile-nav-link text-slate-300 hover:text-white block py-2">About</a>
 
             <div class="mt-4 flex flex-col gap-3">
-                <a @click="open = false" href="{{ /* route('login') */ route('home') }}"
+                <a @click="open = false" href="{{ route('login') }}"
                     class="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-bold text-white">
                     Login
                 </a>

@@ -1,9 +1,20 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('title', 'DEQQA — AI-Assisted Digital Pathology')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
+    <title>Pathology AI</title>
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="min-h-screen bg-[#030914] text-slate-100 antialiased">
+
+    @include('partials.navbar')
+
+    {{-- HOME PAGE CONTENT START --}}
     {{-- ============================================================
          GLOBAL STYLES & ANIMATIONS (CONSOLIDATED)
     ============================================================ --}}
@@ -143,7 +154,7 @@
                 class="transition-all duration-1000 ease-out">
 
                 <div
-                    class="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-r from-white/10 to-transparent px-5 py-2 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
+                    class="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-r from-white/10 to-transparent px-5 py-2 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
                     <svg class="h-4 w-4 text-[#06B6D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                             d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -152,16 +163,23 @@
                         Integrated</span>
                 </div>
 
-                <h1 class="text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.5rem]">
-                    Uncovering <br />
-                    insights in <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4]">gigapixels.</span>
+                <h1
+                    class="text-5xl font-extrabold leading-[1.05] tracking-tight text-white
+           sm:text-6xl lg:text-[4.5rem]">
+                    AI-assisted pathology
+                    <br>
+                    for <span
+                        class="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4]
+               bg-clip-text text-transparent">
+                        whole-slide images.
+                    </span>
                 </h1>
 
-                <p class="mt-8 max-w-lg text-lg leading-relaxed text-slate-400">
-                    Engineered on a Multiple Instance Learning (MIL) framework, Deqqa analyzes massive gastrointestinal
-                    biopsies to pinpoint malignant regions, empowering pathologists with precise, AI-assisted decision
-                    support.
+                <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
+                    Pathology AI brings clinical case management, digital slide viewing,
+                    MIL-based model assessment, and pathologist review into one structured
+                    workflow. AI supports the review process while the final diagnostic
+                    decision remains with the pathologist.
                 </p>
 
                 <div class="mt-10 flex flex-wrap items-center gap-5">
@@ -174,8 +192,8 @@
                         <span class="relative z-10 flex items-center gap-2.5">
                             Explore Platform
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
@@ -227,7 +245,8 @@
                             </div>
 
                             <div class="absolute inset-x-0 w-full animate-scan z-10 pointer-events-none">
-                                <div class="h-32 w-full bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent">
+                                <div
+                                    class="h-32 w-full bg-gradient-to-b from-transparent via-[#06B6D4]/15 to-transparent">
                                 </div>
                                 <div class="h-[2px] w-full bg-[#06B6D4] shadow-[0_0_20px_#06B6D4]"></div>
                             </div>
@@ -291,7 +310,8 @@
                             <h3 class="text-2xl font-bold text-white">AI-Assisted Analysis Engine</h3>
                             <p
                                 class="mt-3 max-w-md text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
-                                Connect the Laravel application with the trained Python model. The MIL framework analyzes
+                                Connect the Laravel application with the trained Python model. The MIL framework
+                                analyzes
                                 gigapixel slides while keeping results distinct from final professional judgment.</p>
                         </div>
                     </div>
@@ -305,16 +325,21 @@
                     <div class="relative z-10">
                         <div
                             class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#8B5CF6]/20 text-[#8B5CF6] transition-transform duration-500 group-hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-9Z" />
                                 <path stroke-linecap="round" stroke-width="2" d="M8 9h8M8 12h8M8 15h5" />
                             </svg>
                         </div>
-                        <h3 class="mt-8 text-xl font-bold text-white">Case Management</h3>
-                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">Organize pathology cases and metadata
-                            securely through a heavily structured, HIPAA-ready Laravel workflow.</p>
+                        <h3 class="mt-8 text-xl font-bold text-white">
+                            Secure Case Management
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                            Organize doctor-scoped pathology cases, patient information,
+                            and private whole-slide images through a structured Laravel workflow.
+                        </p>
                     </div>
                 </div>
 
@@ -336,8 +361,10 @@
                                 </svg>
                             </div>
                             <h3 class="mt-6 text-xl font-bold text-white">Human-in-the-loop Review</h3>
-                            <p class="mt-2 text-sm text-slate-400">The AI supports, but the clinician decides. The system
-                                is designed to seamlessly pass AI-assisted data to the professional for final documentation.
+                            <p class="mt-2 text-sm text-slate-400">The AI supports, but the clinician decides. The
+                                system
+                                is designed to seamlessly pass AI-assisted data to the professional for final
+                                documentation.
                             </p>
                         </div>
                         <div class="mt-8 md:mt-0 flex gap-3">
@@ -368,7 +395,8 @@
                     A focused path from case to review.
                 </h2>
                 <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">The application workflow is intentionally
-                    clinical: organize the case, review the digital slide, request AI analysis, and document professional
+                    clinical: organize the case, review the digital slide, request AI analysis, and document
+                    professional
                     judgment.</p>
             </div>
 
@@ -384,8 +412,8 @@
                         ],
                         [
                             4,
-                            'Clinical Review',
-                            'The pathologist reviews the AI overlay and submits the final diagnostic report.',
+                            'Clinical Review & Reporting',
+                            'The pathologist reviews the model assessment, records the slide-level clinical review, and completes the final case diagnosis.',
                         ],
                     ];
                 @endphp
@@ -439,7 +467,8 @@
                         class="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#6EA8FF]">pathologist.</span>
                 </h2>
                 <p class="mx-auto mt-3 max-w-2xl text-lg text-slate-400">
-                    We place the information that matters most in front of the professional, without turning the interface
+                    We place the information that matters most in front of the professional, without turning the
+                    interface
                     into a complicated IT control panel.
                 </p>
             </div>
@@ -453,38 +482,49 @@
                     class="relative flex flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-[#050B14] shadow-[0_40px_100px_rgba(0,0,0,0.8)] md:block">
 
                     <div class="relative h-[300px] w-full group md:h-auto md:aspect-[16/9]">
-                        <img src="{{ asset('image/microscope_lab_closeup.webp') }}" alt="Microscope"
-                            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-[5000ms] ease-out group-hover:scale-105">
-                        <div
+                        <img src="{{ asset('image/pathologist_monitor_analysis.webp') }}" alt="Microscope"
+                            class="absolute inset-0 h-full w-full
+           object-cover object-center
+           opacity-90
+           transition-transform duration-[5000ms] ease-out
+           group-hover:scale-105"
+                            <div
                             class="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/60 to-transparent md:from-[#030914] md:via-[#030914]/60">
-                        </div>
                     </div>
-
-                    <div class="relative z-10 w-full px-6 pb-8 -mt-24 md:absolute md:bottom-6 md:mt-0 md:px-6 md:pb-0">
-                        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                            <div
-                                class="rounded-2xl border border-white/10 bg-[#081121]/90 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/30 md:bg-white/5">
-                                <h3 class="text-lg font-bold text-white">Structured UI</h3>
-                                <p class="mt-1 text-xs text-slate-300">Clean, medical-grade interface prioritizing slide
-                                    visibility over clutter.</p>
-                            </div>
-                            <div
-                                class="rounded-2xl border border-[#06B6D4]/40 bg-[#06B6D4]/10 p-5 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-500 hover:-translate-y-2 hover:bg-[#06B6D4]/20">
-                                <h3 class="text-lg font-bold text-white">Gigapixel Viewer</h3>
-                                <p class="mt-1 text-xs text-slate-200">Deep zoom capabilities handling massive WSI formats
-                                    seamlessly.</p>
-                            </div>
-                            <div
-                                class="rounded-2xl border border-white/10 bg-[#081121]/90 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/30 md:bg-white/5">
-                                <h3 class="text-lg font-bold text-white">Clear Reporting</h3>
-                                <p class="mt-1 text-xs text-slate-300">Export clinical findings paired with AI confidence
-                                    scores in one click.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="relative z-10 w-full px-6 pb-8 -mt-24 md:absolute md:bottom-6 md:mt-0 md:px-6 md:pb-0">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div
+                            class="rounded-2xl border border-white/10 bg-[#081121]/90 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/30 md:bg-white/5">
+                            <h3 class="text-lg font-bold text-white">Structured UI</h3>
+                            <p class="mt-1 text-xs text-slate-300">Clean, medical-grade interface prioritizing
+                                slide
+                                visibility over clutter.</p>
+                        </div>
+                        <div
+                            class="rounded-2xl border border-[#06B6D4]/40 bg-[#06B6D4]/10 p-5 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-500 hover:-translate-y-2 hover:bg-[#06B6D4]/20">
+                            <h3 class="text-lg font-bold text-white">Gigapixel Viewer</h3>
+                            <p class="mt-1 text-xs text-slate-200">Deep zoom capabilities handling massive WSI
+                                formats
+                                seamlessly.</p>
+                        </div>
+                        <div
+                            class="rounded-2xl border border-white/10 bg-[#081121]/90 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/30 md:bg-white/5">
+                            <h3 class="text-lg font-bold text-white">
+                                Structured Reporting
+                            </h3>
+
+                            <p class="mt-1 text-xs text-slate-300">
+                                Document grossing, microscopy, differential diagnosis,
+                                final diagnosis, and conclusion in one case workspace.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
         </div>
     </section>
 
@@ -508,9 +548,9 @@
             <h2 class="text-5xl font-extrabold tracking-tight text-white sm:text-7xl">
                 Start your <br> clinical workflow.
             </h2>
-            <p
-                class="mx-auto mt-6 max-w-xl text-lg text-slate-400 group-hover:text-slate-300 transition-colors duration-700">
-                Join the platform to securely manage cases and access AI-assisted digital pathology.
+            <p class="mx-auto mt-6 max-w-xl text-lg text-slate-400">
+                Authorized pathologists can securely access cases,
+                review digital slides, and work with AI-assisted analysis.
             </p>
 
             <div class="mt-10 flex justify-center">
@@ -534,5 +574,9 @@
             </div>
         </div>
     </section>
+    {{-- HOME PAGE CONTENT END --}}
+    @include('partials.footer')
 
-@endsection
+</body>
+
+</html>

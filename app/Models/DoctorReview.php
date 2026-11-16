@@ -18,6 +18,13 @@ class DoctorReview extends Model
         'decision'
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'reviewed_at' => 'datetime',
+        ];
+    }
+
     public function slide(): BelongsTo
     {
         return $this->belongsTo(Slide::class, 'slide_id');

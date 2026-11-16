@@ -1,5 +1,13 @@
 # GI Pathology AI --- Laravel A→Z Execution Plan
 
+cd C:\project_Robotna\pathology-ai\pathology_service
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8001 --reload
+
+
+cd C:\project_Robotna\pathology-ai
+npm run dev
+
 ## Rules
 
 -   Laravel 13 is the core.
@@ -256,10 +264,11 @@ Use Laravel Breeze with Blade + Alpine.
 -   [ ] Login
 -   [ ] Logout
 -   [ ] Password hashing
--   [ ] Password reset if required
--   [ ] Auth middleware
+-   [ ] Password reset if required 
+
+-   [ ] Auth middleware 
 -   [ ] Validation
--   [ ] Rate limiting
+-   [ ] Rate limiting مش ع كلشي طبقته  عليهن
 -   [ ] Error handling
 
 **Gate:** guests cannot access protected pages.
@@ -281,7 +290,6 @@ Possible: - `admin` - `doctor`
 -   [ ] Protected route groups
 -   [ ] 403 page
 -   [ ] Unauthorized tests
-
 **Security rule:** never trust a submitted `role` value.
 
 ------------------------------------------------------------------------
@@ -325,7 +333,7 @@ For sensitive medical files, prefer private storage.
 ### Checklist
 
 -   [ ] Upload form
--   [ ] `multipart/form-data`
+-   [ ] `multipart/form-data` مش فاهمها 
 -   [ ] `@csrf`
 -   [ ] File validation
 -   [ ] File type validation
@@ -349,13 +357,50 @@ For sensitive medical files, prefer private storage.
 -   [ ] Approved patient fields
 -   [ ] Specimen information
 -   [ ] Slide information
--   [ ] Slide viewer
+-   [ ] Slide viewer لازم أفهم الكود يلي ضافو بالجافا سكربت وايش عمل ب env وشو ضاف وكيف خلاه السريفر يفهم العلاقات المودودة لحتى قدر يعرض الصورة 
 -   [ ] Analysis status
 -   [ ] Actions
 -   [ ] Review status
 
 **Gate:** doctor can understand the whole current case from one screen.
-
+Doctor opens Case
+        ↓
+Laravel Blade page
+        ↓
+HTML creates empty Viewer area
+        ↓
+JavaScript / OpenSeadragon starts
+        ↓
+asks Laravel for slide information
+        ↓
+Laravel checks doctor authorization
+        ↓
+Laravel calls FastAPI
+        ↓
+FastAPI uses OpenSlide
+        ↓
+returns dimensions / levels
+        ↓
+OpenSeadragon decides which Tiles it needs
+        ↓
+asks Laravel:
+/tiles/13/0/10
+        ↓
+Laravel checks permission again
+        ↓
+Laravel asks FastAPI
+        ↓
+OpenSlide reads that region from original TIFF
+        ↓
+temporary PNG tile
+        ↓
+FastAPI
+        ↓
+Laravel
+        ↓
+Browser
+        ↓
+OpenSeadragon places tile in correct position
 ------------------------------------------------------------------------
 
 # PHASE 13 --- AI Integration Boundary
@@ -795,3 +840,60 @@ First verify the environment, create Laravel 13, run it, verify
 Vite/Tailwind/Pest, initialize Git, and make the first clean commit.
 
 After Phase 1 passes, move to Phase 2.
+
+            OUTSIDE YOUR APP
+────────────────────────────────────────────
+
+Patient
+   ↓
+Biopsy / specimen
+   ↓
+Histopathology lab
+   ↓
+FFPE processing
+   ↓
+H&E staining
+   ↓
+Glass Slide
+   ↓
+WSI Scanner
+   ↓
+TIFF
+
+               YOUR PLATFORM
+────────────────────────────────────────────
+
+Doctor Login
+   ↓
+Create Case
+   ↓
+Patient + Clinical Information
+   ↓
+Upload TIFF
+   ↓
+Private Storage
+   ↓
+Preprocessing
+   ↓
+HSV Tissue Detection
+   ↓
+Generate x/y Coordinates
+   ↓
+Virtual Patches
+   ↓
+MIL Inference
+   ↓
+Cancer / Non-Cancer + Probability
+   ↓
+WSI Viewer
+   ↓
+Doctor Reviews Slide + AI
+   ↓
+Diagnosis
+Conclusion
+Differential Diagnosis
+etc.
+   ↓
+Final Report
+   ↓
+Completed

@@ -19,6 +19,8 @@ class Slide extends Model
         'dataset_group'
     ];
 
+    
+
     public function cases(): BelongsTo
     {
         return $this->belongsTo(cases::class, 'case_id');

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class cases extends Model
 {
-        use HasFactory;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'patient_id',
@@ -25,6 +27,7 @@ class cases extends Model
         'micro_protocol',
         'additional_info',
         'status',
+        'expected_slides',
     ];
     public function patient(): BelongsTo
     {
@@ -40,5 +43,4 @@ class cases extends Model
     {
         return $this->hasMany(Slide::class, 'case_id');
     }
-
 }
